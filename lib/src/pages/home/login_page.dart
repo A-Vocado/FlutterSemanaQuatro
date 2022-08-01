@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/widgets/elevated_button.dart';
-import '../../../widgets/my_form_field.dart';
+import 'package:navigation/src/design_system/atoms/buttons/z_elevated_button.dart';
+import 'package:navigation/src/design_system/atoms/text_field/z_text_field.dart';
+import 'package:navigation/src/pages/user_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,12 +17,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Column(
         children: [
-          MyFormField(
+          ZFormField(
             controller: emailController,
             hintText: 'Insira seu e-mail para fazer login',
             labelText: 'E-mail',
@@ -32,24 +30,30 @@ class _LoginPageState extends State<LoginPage> {
               debugPrint(email);
             },
           ),
-          MyFormField(
-            controller: passwordController,
+          ZFormField(
+            controller: emailController,
             hintText: 'Senha',
             labelText: 'Senha',
-            icon: const Icon(Icons.password),
-            keyboardType: TextInputType.visiblePassword,
-            textInputAction: TextInputAction.done,
+            icon: const Icon(Icons.email),
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
             onChanged: (password) {
               debugPrint(password);
             },
           ),
-          MyElevatedButton(
+          ZElevatedButton(
             onPressed: () {
               emailController.clear();
               passwordController.clear();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const UserPage();
+                  },
+                ),
+              );
             },
-            style: ElevatedButton.styleFrom(minimumSize: const Size(250, 30)),
-            child: const Text('Fazer Login'),
+            child: const Text('Acessar'),
           )
         ],
       ),

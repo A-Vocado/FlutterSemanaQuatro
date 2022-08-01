@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyFormField extends StatelessWidget {
-  MyFormField({
+class ZFormField extends StatelessWidget {
+  ZFormField({
     Key? key,
     this.controller,
     this.hintText,
@@ -24,7 +24,7 @@ class MyFormField extends StatelessWidget {
   final OutlineInputBorder defaultBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(10.0),
     borderSide: const BorderSide(
-      color: Color.fromARGB(255, 0, 0, 50),
+      color: Colors.blueGrey,
       width: 1.0,
     ),
   );

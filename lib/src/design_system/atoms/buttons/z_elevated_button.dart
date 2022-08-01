@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 
-class MyElevatedButton extends StatelessWidget {
-  const MyElevatedButton(
-      {Key? key, this.child, required this.onPressed, required this.style})
-      : super(key: key);
+class ZElevatedButton extends StatelessWidget {
+  const ZElevatedButton({
+    Key? key,
+    this.child,
+    required this.onPressed,
+  }) : super(key: key);
 
   final Widget? child;
   final VoidCallback onPressed;
-  final ButtonStyle style;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ElevatedButton(
-        style: style,
         onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          minimumSize: const Size(250, 30),
+          primary: const Color.fromARGB(255, 48, 0, 140),
+        ),
         child: child,
       ),
     );
