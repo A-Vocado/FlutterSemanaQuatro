@@ -9,10 +9,12 @@ import '../option_list.dart';
 class DetailPage extends StatelessWidget {
   const DetailPage({
     Key? key,
-    required this.option,
+    // required this.option,
+    this.id,
   }) : super(key: key);
 
-  final Option option;
+  // final Option option;
+  final int? id;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class DetailPage extends StatelessWidget {
                 color: Colors.green,
                 child: ZTextH1(text: option.titleOne),
               ),
+              Text(id?.toString() ?? ""),
               ZTextH2(text: option.loremIps),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15),

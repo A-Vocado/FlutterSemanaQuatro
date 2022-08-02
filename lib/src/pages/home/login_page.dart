@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   final isvalidForm = formKey.currentState!.validate();
                   if (isvalidForm) {
-                    Navigator.of(context).pushReplacementNamed('/userPage');
+                    Navigator.of(context).pushReplacementNamed('/second');
                   }
 
                   emailController.clear();
