@@ -24,45 +24,48 @@ class _LoginPageState extends State<LoginPage> {
       body: Form(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         key: formKey,
-        child: Column(
-          children: [
-            ZFormField(
-              controller: emailController,
-              hintText: 'Insira seu e-mail para fazer login',
-              labelText: 'E-mail',
-              icon: const Icon(Icons.email),
-              keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.next,
-              validate: Validator.validateField,
-              onChanged: (email) {
-                debugPrint(email);
-              },
-            ),
-            ZFormField(
-              controller: passwordController,
-              hintText: 'Senha',
-              labelText: 'Senha',
-              icon: const Icon(Icons.email),
-              keyboardType: TextInputType.visiblePassword,
-              textInputAction: TextInputAction.done,
-              validate: Validator.validateField,
-              onChanged: (password) {
-                debugPrint(password);
-              },
-            ),
-            ZElevatedButton(
-              onPressed: () {
-                final isvalidForm = formKey.currentState!.validate();
-                if (isvalidForm) {
-                  Navigator.of(context).pushReplacementNamed('/userPage');
-                }
+        child: Padding(
+          padding: const EdgeInsets.only(top: 220),
+          child: Column(
+            children: [
+              ZFormField(
+                controller: emailController,
+                hintText: 'Insira seu e-mail para fazer login',
+                labelText: 'E-mail',
+                icon: const Icon(Icons.email),
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                validate: Validator.validateField,
+                onChanged: (email) {
+                  debugPrint(email);
+                },
+              ),
+              ZFormField(
+                controller: passwordController,
+                hintText: 'Senha',
+                labelText: 'Senha',
+                icon: const Icon(Icons.email),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+                validate: Validator.validateField,
+                onChanged: (password) {
+                  debugPrint(password);
+                },
+              ),
+              ZElevatedButton(
+                onPressed: () {
+                  final isvalidForm = formKey.currentState!.validate();
+                  if (isvalidForm) {
+                    Navigator.of(context).pushReplacementNamed('/userPage');
+                  }
 
-                emailController.clear();
-                passwordController.clear();
-              },
-              child: const Text('Acessar'),
-            )
-          ],
+                  emailController.clear();
+                  passwordController.clear();
+                },
+                child: const Text('Acessar'),
+              )
+            ],
+          ),
         ),
       ),
     );

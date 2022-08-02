@@ -17,29 +17,33 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ZAppBar(titleText: 'Seja bem vindo!'),
-      body: ListView.builder(
-        itemCount: options.length,
-        itemBuilder: (context, index) {
-          final option = options[index];
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: options.length,
+          itemBuilder: (context, index) {
+            final option = options[index];
 
-          return Card(
-            child: ListTile(
-              title: ZTextTitulo(text: option.titleOne),
-              subtitle: Text(option.subtitle),
-              leading: option.icon,
-              onTap: () {
-                if (option == [2]) {
-                  Navigator.of(context).pushReplacementNamed('/error');
-                }
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(option: option),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+            return Card(
+              child: ListTile(
+                title: ZTextTitulo(text: option.titleOne),
+                subtitle: Text(option.subtitle),
+                leading: option.icon,
+                onTap: () {
+                  if (option == [2]) {
+                    Navigator.of(context).pushReplacementNamed('/error');
+                  } else {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(option: option),
+                      ),
+                    );
+                  }
+                },
+              ),
+            );
+          },
+        ),
       ),
     );
   }
