@@ -10,6 +10,7 @@ class ZFormField extends StatelessWidget {
     this.textInputAction,
     this.icon,
     required this.onChanged,
+    required this.validate,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -18,6 +19,7 @@ class ZFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final Widget? icon;
+  final dynamic validate;
 
   final void Function(String?) onChanged;
 
@@ -60,6 +62,7 @@ class ZFormField extends StatelessWidget {
           onChanged: onChanged,
           keyboardType: keyboardType,
           textInputAction: textInputAction,
+          validator: validate,
         ),
       );
 }
