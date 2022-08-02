@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigation/src/design_system/atoms/text/z_text_app_title.dart';
 import 'package:navigation/src/design_system/atoms/text/z_text_titulo.dart';
 
 class ZAppBar extends PreferredSize {
@@ -11,7 +12,7 @@ class ZAppBar extends PreferredSize {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: ZTextTitulo(text: titleText),
+      title: ZTextApp(text: titleText),
       actions: actions,
       backgroundColor: const Color.fromARGB(255, 48, 0, 140),
     );

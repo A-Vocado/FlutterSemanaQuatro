@@ -9,8 +9,9 @@ class ZTextTitulo extends StatelessWidget {
     return Text(
       text,
       style: const TextStyle(
-        fontWeight: FontWeight.w400,
-        fontSize: 24,
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
+        color: Color.fromARGB(255, 48, 0, 140),
       ),
     );
   }

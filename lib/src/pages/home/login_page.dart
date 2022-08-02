@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/src/design_system/atoms/buttons/z_elevated_button.dart';
 import 'package:navigation/src/design_system/atoms/text_field/z_text_field.dart';
-import 'package:navigation/src/pages/user_page.dart';
 import 'package:navigation/src/validator/validator.dart';
 
 class LoginPage extends StatefulWidget {
@@ -40,12 +39,12 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             ZFormField(
-              controller: emailController,
+              controller: passwordController,
               hintText: 'Senha',
               labelText: 'Senha',
               icon: const Icon(Icons.email),
-              keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.next,
+              keyboardType: TextInputType.visiblePassword,
+              textInputAction: TextInputAction.done,
               validate: Validator.validateField,
               onChanged: (password) {
                 debugPrint(password);
@@ -55,10 +54,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 final isvalidForm = formKey.currentState!.validate();
                 if (isvalidForm) {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const UserPage()),
-                    result: (route) => false,
-                  );
+                  Navigator.of(context).pushReplacementNamed('/userPage');
                 }
 
                 emailController.clear();

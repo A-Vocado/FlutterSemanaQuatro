@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ZTextH1 extends StatelessWidget {
-  const ZTextH1({Key? key, required this.text}) : super(key: key);
+class ZTextApp extends StatelessWidget {
+  const ZTextApp({Key? key, required this.text}) : super(key: key);
   final String text;
 
   @override
@@ -10,8 +10,7 @@ class ZTextH1 extends StatelessWidget {
       text,
       style: const TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 26,
-        backgroundColor: Color.fromARGB(255, 190, 225, 235),
+        fontSize: 20,
       ),
     );
   }
