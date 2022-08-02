@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/src/design_system/atoms/buttons/z_elevated_button.dart';
-import 'package:navigation/src/design_system/atoms/text/z_text_h1.dart';
+import 'package:navigation/src/design_system/atoms/text/z_text_h2.dart';
 
 class ErrorPage extends StatefulWidget {
   const ErrorPage({Key? key}) : super(key: key);
@@ -15,20 +15,29 @@ class _ErrorPageState extends State<ErrorPage> {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(100.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Title(
-                color: Colors.red,
-                child: ZTextH1(text: 'Erro'),
+              Column(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(top: 250),
+                    child: ZTextH2(
+                      text: 'ERRO 404',
+                    ),
+                  ),
+                ],
               ),
-              ZElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).popAndPushNamed('/error');
-                },
-                child: const Text('Voltar'),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: ZElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).popAndPushNamed('/userPage');
+                  },
+                  child: const Text('Voltar'),
+                ),
               )
             ],
           ),

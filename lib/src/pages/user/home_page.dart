@@ -18,7 +18,7 @@ class _UserPageState extends State<UserPage> {
     return Scaffold(
       appBar: ZAppBar(titleText: 'Seja bem vindo!'),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
           itemCount: options.length,
           itemBuilder: (context, index) {
@@ -30,7 +30,7 @@ class _UserPageState extends State<UserPage> {
                 subtitle: Text(option.subtitle),
                 leading: option.icon,
                 onTap: () {
-                  if (option == [2]) {
+                  if (index == 2) {
                     Navigator.of(context).pushReplacementNamed('/error');
                   } else {
                     Navigator.of(context).push(
